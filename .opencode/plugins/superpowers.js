@@ -52,6 +52,16 @@ const normalizePath = (p, homeDir) => {
 // every agent step.  See #1202 for the full analysis.
 let _bootstrapCache = undefined; // undefined = not yet loaded, null = file missing
 
+export // Specialist subagents (omo: explorer/librarian/oracle/designer/fixer/
+// observer/council/councillor) run focused delegated tasks. Injecting the
+// superpowers bootstrap into their sessions would pull them into the skill
+// check flow and away from the task; skip it. Detected via the first user
+// message's agent (the same field omo's own hooks key on).
+const SPECIALIST_AGENTS = new Set([
+  'explorer', 'librarian', 'oracle', 'designer', 'fixer', 'observer',
+  'council', 'councillor',
+]);
+
 export const SuperpowersPlugin = async ({ client, directory }) => {
   const homeDir = os.homedir();
   const superpowersSkillsDir = path.resolve(__dirname, '../../skills');
@@ -131,6 +141,12 @@ ${toolMapping}
       if (!bootstrap || !output.messages.length) return;
       const firstUser = output.messages.find(m => m.info.role === 'user');
       if (!firstUser || !firstUser.parts.length) return;
+
+      // Skip bootstrap for specialist subagent sessions: the first user
+      // message carries the session's agent, so a fixer/explorer/oracle/...
+      // run stays focused on its delegated task instead of entering the
+      // superpowers skill flow.
+      if (SPECIALIST_AGENTS.has(firstUser.info.agent)) return;
 
       // Guard: skip if first user message already contains bootstrap.
       // This prevents double injection when OpenCode passes an already

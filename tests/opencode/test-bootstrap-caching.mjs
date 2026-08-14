@@ -40,10 +40,14 @@ const secondOutput = makeOutput(`${scenario} bootstrap second step`);
 await transform({}, secondOutput);
 const afterSecond = { existsCount, readCount };
 
+const specialistOutput = makeOutput(`${scenario} specialist subagent task`, 'fixer');
+await transform({}, specialistOutput);
+
 const result = {
   scenario,
   firstBootstrapParts: countBootstrapParts(firstOutput),
   secondBootstrapParts: countBootstrapParts(secondOutput),
+  specialistBootstrapParts: countBootstrapParts(specialistOutput),
   staleMentionMapping: bootstrapText(firstOutput).includes('@mention'),
   staleTaskMapping: bootstrapText(firstOutput).includes('`Task` tool with subagents'),
   mapsSubagentToTask: bootstrapText(firstOutput).includes('`task` with `subagent_type` by role'),
@@ -72,10 +76,10 @@ function isBootstrapSkillPath(filePath) {
   return String(filePath).replaceAll('\\', '/').includes('using-superpowers/SKILL.md');
 }
 
-function makeOutput(text) {
+function makeOutput(text, agent) {
   return {
     messages: [{
-      info: { role: 'user' },
+      info: { role: 'user', ...(agent ? { agent } : {}) },
       parts: [{ type: 'text', text }],
     }],
   };
@@ -109,6 +113,9 @@ function assertPresentBootstrap(result) {
   }
   if (result.secondExistsCount !== result.firstExistsCount) {
     failures.push(`expected cached second transform to do no additional exists checks, got ${result.secondExistsCount - result.firstExistsCount}`);
+  }
+  if (result.specialistBootstrapParts !== 0) {
+    failures.push(`expected specialist subagent sessions to skip bootstrap, got ${result.specialistBootstrapParts}`);
   }
   if (result.staleMentionMapping) {
     failures.push('expected OpenCode bootstrap not to teach @mention subagent syntax');
