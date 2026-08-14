@@ -231,7 +231,7 @@ When writing or changing any test, read [writing-good-tests.md](writing-good-tes
 
 | Excuse | Reality |
 |--------|---------|
-| "Too simple to test" | Simple code breaks. Test takes 30 seconds. |
+| "Too simple to test" | Simple core logic breaks too; the test takes 30 seconds. (Applies to core logic — see Test Focus.) |
 | "I'll test after" | Tests written after pass immediately — which proves nothing. They may test the wrong thing, test the implementation instead of the behavior, or miss the edge case you forgot. You never watched it fail, so you never proved it can catch the bug. Test-first forces that failure. |
 | "Tests after achieve same goals (spirit not ritual)" | Tests-after answer "what does this do?"; tests-first answer "what should this do?" Tests written after are biased by the code you already wrote — you verify the cases you remembered, not the ones you'd have discovered. Coverage without proof the tests work. |
 | "Already manually tested" | Manual testing is ad-hoc: no record of what you covered, no way to re-run it when the code changes, easy to forget cases under pressure. "Worked when I tried it" ≠ comprehensive. Automated tests run the same way every time. |
@@ -241,7 +241,7 @@ When writing or changing any test, read [writing-good-tests.md](writing-good-tes
 | "Test hard = design unclear" | Listen to test. Hard to test = hard to use. |
 | "TDD will slow me down" | TDD IS the pragmatic path: catches bugs before commit, prevents regressions, lets you refactor without fear. "Pragmatic" shortcuts mean debugging in production — slower, not faster. |
 | "Manual test faster" | Manual doesn't prove edge cases. You'll re-test every change. |
-| "Existing code has no tests" | You're improving it. Add tests for existing code. |
+| "Existing code has no tests" | You're improving it. Add tests for existing core logic (see Test Focus). |
 
 ## Red Flags - STOP and Start Over
 
@@ -302,7 +302,7 @@ Extract validation for multiple fields if needed.
 
 Before marking work complete:
 
-- [ ] Every new function/method has a test
+- [ ] Every new function/method that implements core logic has a test (see Test Focus)
 - [ ] Watched each test fail before implementing
 - [ ] Each test failed for expected reason (feature missing, not typo)
 - [ ] Wrote minimal code to pass each test

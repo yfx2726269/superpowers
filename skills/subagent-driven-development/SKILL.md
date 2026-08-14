@@ -34,9 +34,9 @@ guessing there is a ruling made in secret.
 
 These stop you, and only these: an irreversible or destructive
 operation; a security-sensitive action; a side effect outside this checkout
-that norms say you ask about first (a merge, a push to a shared branch, a
-publish); a substantive change outside the approved plan; and a conflict
-the approved plan cannot decide. For those, stop and ask.
+that norms say you ask about first (e.g. touching another project or a
+shared resource); a substantive change outside the approved plan; and a
+conflict the approved plan cannot decide. For those, stop and ask.
 
 ## When to Use
 

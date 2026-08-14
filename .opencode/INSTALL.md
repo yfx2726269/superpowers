@@ -101,7 +101,7 @@ Then use the installed package path in `opencode.json`:
 Skills speak in actions ("create a todo", "dispatch a subagent", "read a file"). On OpenCode these resolve to:
 
 - "Create a todo" / "mark complete in todo list" → `todowrite`
-- `Subagent (general-purpose):` template → `task` tool with `subagent_type: "general"` (or `"explore"` for codebase exploration)
+- `Subagent (<role>):` template → `task` tool with `subagent_type` by role: implementation → `"fixer"`, review → `"oracle"`, codebase exploration → `"explorer"`, doc research → `"librarian"`, UI/UX → `"designer"`
 - "Invoke a skill" → OpenCode's native `skill` tool
 - "Read a file" → `read`
 - "Create a file" / "edit a file" / "delete a file" → `apply_patch`

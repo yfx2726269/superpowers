@@ -12,7 +12,7 @@ through your path: understand the context, refine the idea, present a
 design, and get your human partner's approval.
 
 <HARD-GATE>
-For NON-TRIVIAL changes — new features, multi-file work, architectural
+For NON-TRIVIAL changes — new features, multi-file work spanning modules or shared state, architectural
 changes, complex business rules, algorithms, or error-prone state
 transitions — do NOT invoke any implementation skill, write any code,
 scaffold any project, or take any implementation action until you have

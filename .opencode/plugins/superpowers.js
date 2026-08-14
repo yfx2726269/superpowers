@@ -88,7 +88,7 @@ export const SuperpowersPlugin = async ({ client, directory }) => {
     const toolMapping = `**Tool Mapping for OpenCode:**
 When skills request actions, substitute OpenCode equivalents:
 - Create or update todos → \`todowrite\`
-- \`Subagent (general-purpose):\` → \`task\` with \`subagent_type\` by role:
+- \`Subagent (<role>):\` → \`task\` with \`subagent_type\` by role:
   - implementation/coding tasks → \`"fixer"\`
   - code/spec/plan review tasks → \`"oracle"\`
   - codebase exploration/search → \`"explorer"\`
