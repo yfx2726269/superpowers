@@ -4,7 +4,7 @@
 #
 # No drill coverage: this test asks the agent to *describe* SDD (string-
 # matches its verbal explanation against expected keywords like
-# "self-review", "skeptical", "worktree", "Step 1", "loop"). Drill scenarios
+# "self-review", "skeptical", "Step 1", "loop"). Drill scenarios
 # test behavior (real subagent dispatch, plan-following, review loops),
 # not description-recall. Kept by design.
 set -euo pipefail
@@ -150,12 +150,18 @@ fi
 
 echo ""
 
-# Test 8: Verify worktree requirement
-echo "Test 8: Worktree requirement..."
+# Test 8: Verify worktree/branch setup is delegated to the human partner
+echo "Test 8: No worktree requirement..."
 
-output=$(run_claude "What workflow skills are required before using subagent-driven-development? List any prerequisites or required skills." "$CLAUDE_PROMPT_TIMEOUT")
+output=$(run_claude "In subagent-driven-development, what prerequisites must be set up before starting, and who handles worktree/branch setup?" "$CLAUDE_PROMPT_TIMEOUT")
 
-if assert_contains "$output" "using-git-worktrees\|worktree" "Mentions worktree requirement"; then
+if assert_contains "$output" "human partner" "Defers worktree/branch operations to the human partner"; then
+    : # pass
+else
+    exit 1
+fi
+
+if assert_not_contains "$output" "using-git-worktrees" "Does not require the using-git-worktrees skill"; then
     : # pass
 else
     exit 1
@@ -163,12 +169,12 @@ fi
 
 echo ""
 
-# Test 9: Verify main branch warning
-echo "Test 9: Main branch red flag..."
+# Test 9: Verify branch operations are not performed by the agent
+echo "Test 9: Branch operations delegated to human partner..."
 
-output=$(run_claude "In subagent-driven-development, is it okay to start implementation directly on the main branch?" "$CLAUDE_PROMPT_TIMEOUT")
+output=$(run_claude "In subagent-driven-development, who decides branch and merge operations?" "$CLAUDE_PROMPT_TIMEOUT")
 
-if assert_contains "$output" "worktree\|feature.*branch\|not.*main\|never.*main\|avoid.*main\|don't.*main\|consent\|permission" "Warns against main branch"; then
+if assert_contains "$output" "human partner\|not by the agent" "Branch operations delegated to the human partner"; then
     : # pass
 else
     exit 1
