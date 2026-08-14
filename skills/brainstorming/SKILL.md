@@ -12,11 +12,19 @@ through your path: understand the context, refine the idea, present a
 design, and get your human partner's approval.
 
 <HARD-GATE>
-Do NOT invoke any implementation skill, write any code, scaffold any
-project, or take any implementation action until you have told your
-human partner what you intend and they have approved it. This applies
-to EVERY task on EVERY path below — the ceremony scales with the task;
-the approval gate never does.
+For NON-TRIVIAL changes — new features, multi-file work, architectural
+changes, complex business rules, algorithms, or error-prone state
+transitions — do NOT invoke any implementation skill, write any code,
+scaffold any project, or take any implementation action until you have
+told your human partner what you intend and they have approved it. This
+applies to EVERY non-trivial task on EVERY path below — the ceremony
+scales with the task; the approval gate never does.
+
+TRIVIAL changes — a single-line edit, a typo fix, a parameter
+adjustment, a low-risk one-point change, simple CRUD or DTO/POJO
+boilerplate — are exempt from this gate and may be executed directly.
+When in doubt between trivial and non-trivial, take the heavier path:
+present the intent, get the approval.
 </HARD-GATE>
 
 ## Three Paths
@@ -51,20 +59,21 @@ When in doubt between two paths, take the heavier one. The ratchet is
 one-way: hidden complexity discovered mid-task upgrades the path —
 stop, say so, and step up. Nothing downgrades mid-task.
 
-## Anti-Pattern: "Too Simple To Need Approval"
+## Anti-Pattern: "Trivial Enough To Skip The Gate"
 
-Every path ends with your human partner approving your intent before
-implementation. A todo list, a single-function utility, a config
-change — the design may be two sentences in chat, but you MUST present
-it and get approval. "Simple" tasks are where unexamined assumptions
-cause the most wasted work. What scales with simplicity is the
-artifact, never the approval.
+Trivial changes run directly — but "trivial" is a narrow lane. A change
+that touches multiple files, alters shared state, or changes behavior
+others depend on is NOT trivial, even if it feels small. A todo list
+item that looks simple, a config change that affects other consumers —
+present the short design and get approval. "Simple" tasks are where
+unexamined assumptions cause the most wasted work. What scales with
+simplicity is the artifact, never the approval.
 
 ## Red Flags
 
 | Thought | Reality |
 |---------|---------|
-| "This is too simple to need a design" | Simple means a short design, not no design. Two sentences in chat, then approval. |
+| "This is too simple to need a design" | A genuinely trivial change (one line, a typo, a parameter) runs directly. A gray-zone change needs a short design — two sentences in chat, then approval. |
 | "I'll call it bounded and skip the spec" | Reaching for a label to skip work IS the doubt — take the heavier path. |
 | "It's bounded and the design is obvious — I'll start while they read it" | The gate is the approval, not the design's length. Present, then stop until you hear yes. |
 | "I understand this kind of app, so it's bounded" | Bounded measures the repo, not your familiarity. A new project has no existing flow — it is architectural. |
@@ -217,6 +226,8 @@ After writing the spec document, look at it with fresh eyes:
 4. **Ambiguity check:** Could any requirement be interpreted two different ways? If so, pick one and make it explicit.
 
 Fix any issues inline. No need to re-review — just fix and move on.
+(In orchestrator mode, this review can be delegated to an oracle
+specialist with the same checklist.)
 
 **User Review Gate:**
 After the spec review loop passes, ask the user to review the written spec before proceeding:

@@ -13,6 +13,21 @@ Write the test first. Watch it fail. Write minimal code to pass.
 
 **Violating the letter of the rules is violating the spirit of the rules.**
 
+## Execution Modes
+
+The RED-GREEN-REFACTOR cycle is the method; who executes it varies by mode:
+
+- **Build agent mode (default):** write the failing test and the
+  implementation yourself, exactly as described below.
+- **Orchestrator mode:** delegate the task to a `fixer` specialist and
+  require it to follow the RED-GREEN-REFACTOR cycle internally. Carry
+  the TDD rules that matter into the dispatch prompt: test first, watch
+  it fail for the right reason, write minimal code, keep the whole
+  suite green.
+- **Test focus:** write tests for core logic — complex business rules,
+  algorithms, and error-prone state transitions. Do not write tests for
+  simple CRUD, DTO/POJO boilerplate, glue code, or configuration.
+
 ## When to Use
 
 **Always:**
