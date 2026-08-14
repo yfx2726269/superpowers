@@ -268,7 +268,7 @@ turn loses the bootstrap — start a fresh session if skills stop triggering.
 
 4. **test-driven-development** - Activates during implementation. Enforces RED-GREEN-REFACTOR: write failing test, watch it fail, write minimal code, watch it pass, commit. Deletes code written before tests.
 
-5. **requesting-code-review** - Activates between tasks. Reviews against plan, reports issues by severity. Critical issues block progress.
+5. **code-review** - Activates when work is ready to be verified and when review feedback arrives. Requesting half dispatches an oracle specialist that reviews against plan and reports issues by severity; receiving half handles feedback with technical rigor (verify, push back with reasoning, fix).
 
 **The agent checks for relevant skills before any task.** Mandatory workflows, not suggestions.
 
@@ -296,8 +296,7 @@ Superpowers is built by [Jesse Vincent](https://blog.fsck.com) and the rest of t
 - **writing-plans** - Detailed implementation plans
 - **executing-plans** - Batch execution with checkpoints
 - **dispatching-parallel-agents** - Concurrent subagent workflows
-- **requesting-code-review** - Pre-review checklist
-- **receiving-code-review** - Responding to feedback
+- **code-review** - Request review (oracle specialist, severity-graded findings) and respond to feedback
 - **subagent-driven-development** - Fast iteration with two-stage review (spec compliance, then code quality)
 
 **Meta**
