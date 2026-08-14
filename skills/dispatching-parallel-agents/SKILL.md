@@ -44,6 +44,26 @@ digraph when_to_use {
 - Need to understand full system state
 - Agents would interfere with each other
 
+## Working Mode
+
+When 2+ parallel work units exist, confirm the working mode first —
+unless your human partner has already stated it in this session. A
+single lightweight question suffices; never block on repeated asking:
+
+- **Subagent mode:** route each parallel unit to the matching
+  specialist and issue all dispatches in the same response (they run
+  concurrently):
+  - implementation/fixes → `fixer`
+  - exploration/search → `explorer`
+  - review/verification → `oracle`
+  - library/doc research → `librarian`
+  - UI/UX work → `designer`
+- **Single agent mode:** execute the parallel units yourself, in this
+  session, without dispatching subagents — sequentially or interleaved
+  as context allows.
+
+Once the mode is explicit, follow it without re-asking.
+
 ## The Pattern
 
 ### 1. Identify Independent Domains
