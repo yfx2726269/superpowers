@@ -165,6 +165,9 @@ PLAN
         echo "    got: $rp_explicit"
     fi
 
+    # Manual worktree compatibility: this block verifies sdd-workspace against
+    # a human-maintained git worktree. The agent itself never creates worktrees
+    # — worktree/branch/merge/PR operations are done by the human partner.
     # --- Worktree isolation: a linked worktree resolves its own workspace ---
     local wt="$TEST_ROOT/wt"
     ( cd "$repo" && git worktree add -q "$wt" -b wt-feature )

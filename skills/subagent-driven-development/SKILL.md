@@ -16,7 +16,7 @@ ledger and the tool results carry the record.
 
 **Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are the ones named below, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
 
-**Rulings, not stalls.** Execute every task inside the approved plan
+**Rulings within the plan, not stalls.** Execute every task inside the approved plan
 continuously, without pausing between tasks. Conflicts, ambiguities,
 and plan defects — rule on them against the approved plan: the spec is
 the binding authority, the plan is its argument, and your judgment

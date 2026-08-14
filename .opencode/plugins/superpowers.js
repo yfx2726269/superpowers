@@ -52,11 +52,13 @@ const normalizePath = (p, homeDir) => {
 // every agent step.  See #1202 for the full analysis.
 let _bootstrapCache = undefined; // undefined = not yet loaded, null = file missing
 
-export // Specialist subagents (omo: explorer/librarian/oracle/designer/fixer/
+// Specialist subagents (omo: explorer/librarian/oracle/designer/fixer/
 // observer/council/councillor) run focused delegated tasks. Injecting the
 // superpowers bootstrap into their sessions would pull them into the skill
 // check flow and away from the task; skip it. Detected via the first user
 // message's agent (the same field omo's own hooks key on).
+// Keep this list in sync with omo's SUBAGENT_NAMES in
+// src/config/constants.ts (oh-my-opencode-slim).
 const SPECIALIST_AGENTS = new Set([
   'explorer', 'librarian', 'oracle', 'designer', 'fixer', 'observer',
   'council', 'councillor',
