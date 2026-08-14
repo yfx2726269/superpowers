@@ -46,7 +46,7 @@ const result = {
   secondBootstrapParts: countBootstrapParts(secondOutput),
   staleMentionMapping: bootstrapText(firstOutput).includes('@mention'),
   staleTaskMapping: bootstrapText(firstOutput).includes('`Task` tool with subagents'),
-  mapsSubagentToTask: bootstrapText(firstOutput).includes('`task` with `subagent_type: "general"`'),
+  mapsSubagentToTask: bootstrapText(firstOutput).includes('`task` with `subagent_type` by role'),
   mapsMutationToApplyPatch: bootstrapText(firstOutput).includes('`apply_patch`'),
   firstReadCount: afterFirst.readCount,
   secondReadCount: afterSecond.readCount,
@@ -117,7 +117,7 @@ function assertPresentBootstrap(result) {
     failures.push('expected OpenCode bootstrap not to teach stale Task-tool mapping');
   }
   if (!result.mapsSubagentToTask) {
-    failures.push('expected OpenCode bootstrap to map general-purpose subagents to task with subagent_type');
+    failures.push('expected OpenCode bootstrap to map subagent dispatch to task with role-based subagent_type');
   }
   if (!result.mapsMutationToApplyPatch) {
     failures.push('expected OpenCode bootstrap to map file mutation to apply_patch');
