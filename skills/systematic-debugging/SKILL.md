@@ -45,14 +45,16 @@ Use for ANY technical issue:
 
 The four phases are the method; who executes them varies by mode:
 
-- **Build agent mode (default):** execute all four phases yourself, in
+- **Direct (single-agent) mode (default):** execute all four phases yourself, in
   order, exactly as described below.
 - **Orchestrator mode:** delegate by phase, keeping the phase order and
   gates intact:
   - Phases 1-3 (investigation — reading error messages, reproducing,
-    checking history, tracing data flow): delegate fault location to an
-    `explorer` specialist and root-cause analysis to an `oracle`
-    specialist; hypothesis testing stays in the same investigation loop.
+    checking history, tracing data flow): delegate the investigation to
+    an `explorer` specialist and the root-cause analysis to an `oracle`
+    specialist. Explorer is read-only: diagnostic instrumentation that
+    writes code is done by you or a `fixer`. Hypothesis testing stays
+    in the same investigation loop.
   - Phase 4 (implementation): delegate the fix to a `fixer` specialist,
     carrying the confirmed root cause and the failing test with it.
   - The Iron Law holds across delegation: no fix dispatch before the

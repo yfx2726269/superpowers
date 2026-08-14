@@ -16,8 +16,7 @@ ledger and the tool results carry the record.
 
 **Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are the ones named below, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
 
-**Rulings within the plan, not stalls.** Execute every task inside the approved plan
-continuously, without pausing between tasks. Conflicts, ambiguities,
+**Rulings within the plan, not stalls.** Conflicts, ambiguities,
 and plan defects — rule on them against the approved plan: the spec is
 the binding authority, the plan is its argument, and your judgment
 settles what neither answers. Record every decision in the ledger as
@@ -27,10 +26,11 @@ session parked on a question costs their whole day and buys nothing.
 
 Two boundaries sit outside your ruling authority. A substantive change
 beyond the approved plan — new scope, changed interfaces, different
-architecture — goes back to your human partner as a plan delta and waits
-for approval before you execute it. And a conflict the approved plan
-cannot decide, where every resolution is a guess, stops for a question,
-not a ruling: guessing there is a ruling made in secret.
+architecture, or a cap you would have asked to exceed (budget, fix
+rounds) — goes back to your human partner and waits for approval before
+you execute it. And a conflict the approved plan cannot decide, where
+every resolution is a guess, stops for a question, not a ruling:
+guessing there is a ruling made in secret.
 
 These stop you, and only these: an irreversible or destructive
 operation; a security-sensitive action; a side effect outside this checkout
@@ -470,7 +470,7 @@ Then run exactly one scoped re-review of the fix wave
 [re-review-prompt.md](re-review-prompt.md)).
 Adjudicate any residual findings as in the task loop's breaker: park with
 rulings, or rule on the load-bearing ones and ledger what you decided. Only
-the four classes above stop you here. There is no second fix wave —
+the classes above stop you here. There is no second fix wave —
 residual load-bearing findings surface to your human partner in your
 final report.
 

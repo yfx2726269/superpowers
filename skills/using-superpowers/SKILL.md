@@ -19,7 +19,7 @@ This is not negotiable. You cannot rationalize your way out of this.
 
 **Invoke relevant or requested skills BEFORE any response or action** — including clarifying questions, exploring the codebase, or checking files. If it turns out wrong for the situation, you don't have to use it.
 
-**Before entering plan mode:** for non-trivial changes (new features, multi-file or architectural work, complex business rules), invoke the brainstorming skill first if you haven't already; trivial changes (single-line edits, typos, parameter adjustments) execute directly without the design gate.
+**Before entering plan mode:** for non-trivial changes (as defined by brainstorming's HARD-GATE), invoke the brainstorming skill first if you haven't already; trivial changes execute directly without the approval gate.
 
 Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it has a checklist, create a todo per item.
 
@@ -27,8 +27,8 @@ Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it h
 
 When multiple skills apply, process skills come first — they set the approach, then implementation skills (frontend-design, etc.) carry it out. Brainstorming and systematic-debugging are Superpowers' most common process skills, but the rule holds for any of them.
 
-- "Let's build X" → superpowers:brainstorming first, then implementation skills. (Suggested trigger for non-trivial builds; trivial changes execute directly. In orchestrator mode, translate to specialist delegation — explorer for exploration, oracle for spec review, fixer for implementation.)
-- "Fix this bug" → superpowers:systematic-debugging first, then domain skills. (Suggested trigger. In orchestrator mode, delegate investigation to explorer/oracle and the fix to fixer.)
+- "Let's build X" → superpowers:brainstorming first, then implementation skills. (For non-trivial builds, as defined by brainstorming's HARD-GATE; trivial changes execute directly. In orchestrator mode, delegate to specialists — explorer for exploration, oracle for spec review, fixer for implementation.)
+- "Fix this bug" → superpowers:systematic-debugging first, then domain skills. (In orchestrator mode, delegate investigation to explorer/oracle and the fix to fixer.)
 
 ## Red Flags
 
