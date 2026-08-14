@@ -62,8 +62,8 @@ stop, say so, and step up. Nothing downgrades mid-task.
 ## Anti-Pattern: "Trivial Enough To Skip The Gate"
 
 Trivial changes run directly — but "trivial" is a narrow lane. A change
-that touches multiple files, alters shared state, or changes behavior
-others depend on is NOT trivial, even if it feels small. A todo list
+that is multi-file work spanning modules or shared state, or that changes
+behavior others depend on, is NOT trivial, even if it feels small. A todo list
 item that looks simple, a config change that affects other consumers —
 present the short design and get approval. "Simple" tasks are where
 unexamined assumptions cause the most wasted work. What scales with

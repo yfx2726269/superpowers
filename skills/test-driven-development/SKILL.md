@@ -38,7 +38,7 @@ The RED-GREEN-REFACTOR cycle is the method; who executes it varies by mode:
 - Generated code
 - Configuration files
 
-Thinking "skip TDD just this once"? Stop. That's rationalization.
+Thinking "skip TDD just this once" for work within Test Focus? Stop. That's rationalization.
 
 ## Test Focus
 
@@ -54,7 +54,7 @@ NO PRODUCTION CODE WITHOUT A FAILING TEST FIRST
 
 Write code before the test? Delete it. Start over.
 
-**No exceptions:**
+**No exceptions (within Test Focus):**
 - Don't keep it as "reference"
 - Don't "adapt" it while writing tests
 - Don't look at it
@@ -335,4 +335,4 @@ Production code → test exists and failed first
 Otherwise → not TDD
 ```
 
-No exceptions without your human partner's permission.
+No exceptions within Test Focus without your human partner's permission.
