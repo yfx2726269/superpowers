@@ -44,25 +44,29 @@ digraph when_to_use {
 - Need to understand full system state
 - Agents would interfere with each other
 
-## Working Mode
+## Default Execution Mode
 
-When 2+ parallel work units exist, confirm the working mode first —
-unless your human partner has already stated it in this session. A
-single lightweight question suffices; never block on repeated asking:
+Your working mode is decided by your role, not by asking. Follow your
+role's declared identity:
 
-- **Subagent mode:** route each parallel unit to the matching
-  specialist and issue all dispatches in the same response (they run
-  concurrently):
+- **Orchestrator identity:** if your role prompt declares you a
+  workflow manager / orchestrator — responsible for planning, scheduling,
+  and delegating to specialists (e.g. omo-slim's orchestrator) — then
+  when 2+ parallel work units exist, default to subagent mode: route
+  each unit to the matching specialist and issue all dispatches in the
+  same response (they run concurrently):
   - implementation/fixes → `fixer`
   - exploration/search → `explorer`
   - review/verification → `oracle`
   - library/doc research → `librarian`
   - UI/UX work → `designer`
-- **Single agent mode:** execute the parallel units yourself, in this
-  session, without dispatching subagents — sequentially or interleaved
-  as context allows.
+- **Single agent identity:** otherwise — no delegation role declared,
+  you execute work directly (e.g. a build agent) — default to executing
+  the parallel units yourself, in this session, without dispatching
+  subagents; run them sequentially or interleaved as context allows.
 
-Once the mode is explicit, follow it without re-asking.
+If your human partner explicitly states a mode, their instruction wins
+over this default.
 
 ## The Pattern
 
