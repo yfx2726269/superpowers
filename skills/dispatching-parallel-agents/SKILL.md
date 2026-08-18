@@ -1,6 +1,6 @@
 ---
 name: dispatching-parallel-agents
-description: Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies
+description: 2+ unrelated problems with disjoint files and no shared state. NOT for tasks inside one plan/checkout sharing files or a review flow (those run sequentially, subagent-driven-development).
 ---
 
 # Dispatching Parallel Agents
@@ -43,6 +43,7 @@ digraph when_to_use {
 - Failures are related (fix one might fix others)
 - Need to understand full system state
 - Agents would interfere with each other
+- Tasks inside one plan/checkout: they share the checkout and review pipeline — run them one at a time (subagent-driven-development).
 
 ## Default Execution Mode
 
@@ -60,6 +61,8 @@ and issue all dispatches in the same response (they run concurrently):
 
 If your human partner explicitly states a mode, their instruction wins
 over this default.
+
+Applies only to disjoint, no-shared-state units; units sharing a checkout or building on each other stay sequential.
 
 ## The Pattern
 

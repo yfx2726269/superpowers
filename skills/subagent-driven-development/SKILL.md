@@ -1,6 +1,6 @@
 ---
 name: subagent-driven-development
-description: Use when executing implementation plans with independent tasks in the current session
+description: Execute an implementation plan in the current session. Plan tasks share one checkout and review gate — one implementer at a time. (Disjoint, no-shared-state work: see dispatching-parallel-agents.)
 ---
 
 # Subagent-Driven Development
@@ -285,7 +285,7 @@ and fix-round diffs need it.
   a pointer to that ledger entry in the dispatch.
 - Record the implementer's agent identity from the dispatch result —
   fix-loop rounds 1-3 resume this agent.
-- Never dispatch multiple implementation subagents in parallel (conflicts).
+- Never run implementers in parallel within one plan — shared checkout and review gate; parallel only for disjoint, no-shared-state work (dispatching-parallel-agents).
 
 Template: [implementer-prompt.md](implementer-prompt.md)
 
