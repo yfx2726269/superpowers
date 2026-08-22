@@ -58,7 +58,7 @@ independently testable deliverable.
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** Implement this plan task-by-task with `superpowers:executing-plans` (inline). Under the orchestrator (multi-agent) mode you may instead use `superpowers:subagent-driven-development` to dispatch a fresh subagent per task. A build agent in single-execution mode always stays inline. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -152,7 +152,14 @@ If you find issues, fix them inline. No need to re-review — just fix and move 
 
 ## Execution Handoff
 
-After saving the plan, offer execution choice:
+After saving the plan, route to execution based on your agent mode:
+
+**Build agent (single-execution mode):** you never dispatch subagents yourself — multi-agent execution is the orchestrator's job. Do NOT ask the user to choose between Subagent-Driven and Inline; go straight to inline execution:
+
+- **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
+- Batch execution with checkpoints for review
+
+**Orchestrator (multi-agent) mode:** offer the execution choice:
 
 **"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
 

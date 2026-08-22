@@ -1,6 +1,6 @@
 ---
 name: subagent-driven-development
-description: Execute an implementation plan in the current session. Plan tasks share one checkout and review gate — one implementer at a time. (Disjoint, no-shared-state work: see dispatching-parallel-agents.)
+description: "Execute an implementation plan in the current session. Plan tasks share one checkout and review gate — one implementer at a time. (Disjoint, no-shared-state work: see dispatching-parallel-agents.)"
 ---
 
 # Subagent-Driven Development
@@ -10,6 +10,8 @@ Execute plan by dispatching a fresh implementer subagent per task, a task review
 **Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
 
 **Core principle:** Fresh subagent per task + task review (spec + quality) + broad final review = high quality, fast iteration
+
+**Mode requirement:** Only use this skill under the **orchestrator (multi-agent) mode**, where you dispatch fresh subagents per task. A **build agent running in single-execution mode** must NOT use this skill — it never dispatches subagents itself; that is the orchestrator's job. In single-execution mode, implement the plan inline with `superpowers:executing-plans` instead.
 
 **Narration:** between tool calls, narrate at most one short line — the
 ledger and the tool results carry the record.
