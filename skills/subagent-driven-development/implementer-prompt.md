@@ -5,8 +5,6 @@ Use this template when dispatching an implementer subagent.
 ```
 Subagent (fixer):
   description: "Implement Task N: [task name]"
-  model: [MODEL — REQUIRED: choose per SKILL.md Model Selection; an omitted
-         model silently inherits the session's most expensive one]
   prompt: |
     You are implementing Task N: [task name]
 
@@ -52,8 +50,8 @@ Subagent (fixer):
     Do all of this task's work yourself. Never spawn a subagent to
     implement part of the task, and above all never spawn a reviewer to
     check your work. Self-review (below) means reading your own diff.
-    Review is the controller's job: after you report, it dispatches a
-    fresh reviewer against your diff. A reviewer you spawn duplicates
+    Review is the controller's job: after you report, it dispatches the
+    reviewer against your diff. A reviewer you spawn duplicates
     that review at full cost, and its approval counts for nothing in
     the process. If you catch yourself thinking "an independent review
     would strengthen my report" — that review is already scheduled.
