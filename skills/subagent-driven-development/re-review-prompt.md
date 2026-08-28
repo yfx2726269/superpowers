@@ -56,7 +56,7 @@ Subagent (oracle):
     Inspect the fix diff for new problems the fix itself introduced. Do NOT
     re-review code the fix did not touch: if you notice an issue entirely
     outside the fix diff, report it under Out-of-Scope Observations — it
-    does not block this task and does not extend the loop. A broad
+    does not block this task and is not fixed in this wave. A broad
     whole-branch review happens after all tasks are complete.
 
     ## Tests
@@ -94,8 +94,9 @@ Subagent (oracle):
 
     ### Verdict
 
-    **Fix wave:** [All findings addressed, no new Critical/Important
-    breakage | Findings remain open] — list the open ones.
+    **Fix wave:** [All findings addressed, no new breakage | Findings open,
+    none new | New Critical/Important breakage in the fix diff] — list the
+    open findings and any new breakage with file:line.
 ```
 
 **Placeholders:**

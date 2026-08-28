@@ -116,8 +116,9 @@ a ledger file, not only in todos.
 - Check for this plan's ledger at `<workspace>/progress.md`. If its first
   line names your plan file, tasks with a `Task <N>: complete` line are DONE
   — do not re-dispatch them; resume at the first task without one. A task
-  whose last line is a fix wave is mid-loop: resume at the re-review or
-  adjudication it names. A ledger whose first line names a different plan
+  whose last line is a fix wave entry is mid-loop: re-run the scoped
+  re-review for the commits it names, then adjudicate the residuals. A
+  ledger whose first line names a different plan
   file — or a stray ledger at the old flat path `.superpowers/sdd/progress.md`
   — is another plan's progress: leave it in place and start your own, fresh.
 - Create the ledger with its identity as the first line:
@@ -336,6 +337,10 @@ brief, the report file, and the printed diff path. The re-reviewer verdicts
 each finding ADDRESSED or NOT ADDRESSED and flags new breakage in the fix
 diff only. Name the covering test files in the fix message — a one-line
 fix does not need the whole suite.
+
+New Critical/Important breakage the re-review flags in the fix diff joins
+the findings being adjudicated — park it with a ruling (it surfaces in your
+final report) or rule-and-carry it like any residual.
 
 **Adjudicate residuals; there is no second wave.** When the re-review
 still leaves findings open:
