@@ -23,7 +23,7 @@ disagree.
   default for context hygiene, not because overrides require them.
 - **Fix rounds:** resume the implementer with `followup_task` — it
   delivers your message, triggers a turn, and transparently reloads a
-  child the harness evicted. Never dispatch a fresh implementer on the
+  child the harness evicted. Never dispatch a fresh implementer session on the
   theory that a spawned agent cannot be messaged again; on V2 it
   always can.
 - **Lifecycle:** V2 has no `close_agent`. Finished children are

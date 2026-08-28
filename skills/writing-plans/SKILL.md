@@ -35,16 +35,19 @@ This structure informs the task decomposition. Each task should produce self-con
 
 ## Task Right-Sizing
 
-A task is the smallest unit that carries its own test cycle and is worth a
-fresh reviewer's gate. When drawing task boundaries: fold setup,
-configuration, scaffolding, and documentation steps into the task whose
-deliverable needs them; split only where a reviewer could meaningfully
-reject one task while approving its neighbor. Each task ends with an
-independently testable deliverable.
+A task is a functionally complete block that can be verified independently
+and committed independently; the review gate acts on the functional block.
+When drawing task boundaries: fold setup, configuration, scaffolding, and
+documentation steps into the task whose deliverable needs them; split only
+where a reviewer could meaningfully reject one task while approving its
+neighbor. Each task ends with an independently testable deliverable.
 
 ## Bite-Sized Task Granularity
 
-**Each step is one action (2-5 minutes):**
+**A step is a line in the implementation checklist; it is not a dispatch or
+review boundary.** Tasks are divided along complete functional boundaries —
+not by time estimate, story-point count, or file count.
+
 - "Write the failing test" - step
 - "Run it to make sure it fails" - step
 - "Implement the minimal code to make the test pass" - step
@@ -58,7 +61,7 @@ independently testable deliverable.
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** Implement this plan task-by-task with `superpowers:executing-plans` (inline). Under the orchestrator (multi-agent) mode you may instead use `superpowers:subagent-driven-development` to dispatch a fresh subagent per task. A build agent in single-execution mode always stays inline. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** Implement this plan task-by-task with `superpowers:executing-plans` (inline). Under the orchestrator (multi-agent) mode you may instead use `superpowers:subagent-driven-development` to dispatch implementer sessions, reusing a session for related work or starting fresh when warranted. A build agent in single-execution mode always stays inline. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -163,7 +166,7 @@ After saving the plan, route to execution based on your agent mode:
 
 **"Plan complete and saved to `docs/superpowers/plans/<filename>.md`. Two execution options:**
 
-**1. Subagent-Driven (recommended)** - I dispatch a fresh subagent per task, review between tasks, fast iteration
+**1. Subagent-Driven (recommended)** - I reuse a session for related work or start fresh when warranted, review between tasks, fast iteration
 
 **2. Inline Execution** - Execute tasks in this session using executing-plans, batch execution with checkpoints
 
@@ -171,7 +174,7 @@ After saving the plan, route to execution based on your agent mode:
 
 **If Subagent-Driven chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:subagent-driven-development
-- Fresh subagent per task + two-stage review
+- Reuse a session for related work or start fresh when warranted + two-stage review
 
 **If Inline Execution chosen:**
 - **REQUIRED SUB-SKILL:** Use superpowers:executing-plans
